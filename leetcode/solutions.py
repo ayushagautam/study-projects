@@ -8,3 +8,12 @@ def twoSum (self, nums, target):
             for j in range(len(nums)): 
                if nums[i] + nums[j] == target and i != j: 
                 return [i, j] 
+               
+# Approach: using a hash map - reduces runtime
+def twoSum(self, nums, target):
+        seen = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in seen:
+                return [seen[complement], i]
+            seen[num] = i
